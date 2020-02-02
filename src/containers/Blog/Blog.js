@@ -4,7 +4,6 @@ import Post from '../../components/Post/Post';
 import FullPost from './FullPost/FullPost';
 import NewPost from './NewPost/NewPost';
 import './Blog.css';
-// import axios from 'axios';
 import axios from '../../axios';
 import Posts from './Posts/Posts';
 import {Route} from 'react-router-dom';
@@ -24,7 +23,9 @@ class Blog extends Component {
                 <br />
                 <br />
                 <br />
-                <Route path="/" exact render={() => <h1>Home</h1>} />
+                <Route path="/" exact component={Posts} />
+                <Route path="/newpost" exact component={NewPost} />
+                {/* <Route path="/" exact render={() => <h1>Home</h1>} /> */}
                 {/* <section className="Posts">
                     <FullPost id={this.state.selectedPostId}/>
                 </section>
