@@ -8,6 +8,10 @@ import Posts from './Posts/Posts';
 import {Route, NavLink, Switch, Redirect} from 'react-router-dom';
 
 class Blog extends Component {
+    state = {
+        auth: false
+    }
+
     render () {
         return (
             <div className="Blog">
@@ -34,7 +38,7 @@ class Blog extends Component {
                 <br />
                 <Switch>
                     {/* ORDER IS IMPORTANT HERE */}
-                    <Route path="/newpost" exact component={NewPost} />
+                    {this.state.auth ? <Route path="/newpost" exact component={NewPost} /> : null}
                     <Route path="/posts/:id" exact component={FullPost} />
                     <Route path="/" component={Posts} />
                     <Redirect from='/' to='/posts/' />
